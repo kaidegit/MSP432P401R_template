@@ -37,12 +37,13 @@ add_compile_options(-g -gstrict-dwarf -Wall --specs=nano.specs)
 #add_compile_options(-Os)
 
 include_directories(Drivers Drivers/CMSIS/Include Drivers/ti/devices)
-include_directories(Drivers/ti/devices/msp432p4xx/inc Drivers/ti/devices/msp432p4xx/driverlib)
+include_directories(Drivers/ti/devices/msp432p4xx/inc)
 include_directories(Core/Inc)
+include_directories(Hardwares/OLED)
 
 add_definitions(-D__MSP432P401R__ -DDeviceFamily_MSP432P401x)
 
-file(GLOB_RECURSE SOURCES "Drivers/*.*" "Core/*.*" "StartUp/*.*")
+file(GLOB_RECURSE SOURCES "Drivers/*.*" "Core/*.*" "StartUp/*.*" "Hardwares/*.*")
 
 set(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/msp432p401r.lds)
 
